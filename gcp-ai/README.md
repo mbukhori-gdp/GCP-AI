@@ -19,13 +19,13 @@ Before running the scripts, ensure that you have the following:
    - Linux, WSL and MacOS Version (UNIX)
 
    ```bash
-   curl -o setup_gcp_ai.sh https://raw.githubusercontent.com/GDP-ADMIN/codehub/main/gcp-ai/setup_gcp_ai.sh && chmod 755 setup_gcp_ai.sh && bash setup_gcp_ai.sh
+   curl -o setup_gcp_ai.sh https://raw.githubusercontent.com/mbukhori-gdp/GCP-AI/main/gcp-ai/setup_gcp_ai.sh && chmod 755 setup_gcp_ai.sh && bash setup_gcp_ai.sh
    ```
 
    - Windows Version
 
    ```powershell
-   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/GDP-ADMIN/codehub/main/gcp-ai/setup_gcp_ai.sh" -OutFile "setup_gcp_ai.sh"
+   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/mbukhori-gdp/GCP-AI/main/gcp-ai/setup_gcp_ai.sh" -OutFile "setup_gcp_ai.sh"
    wsl ./setup_gcp_ai.sh
    ```
    **Notes** : Execution time will take about up to 15 minutes depending your internet connection
