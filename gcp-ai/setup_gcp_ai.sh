@@ -210,7 +210,12 @@ if [ -f .env ]; then
   # Export all variables in the .env file, ignoring commented lines and empty lines
   set -a
   while IFS='=' read -r key value; do
+    # Trim any leading and trailing whitespace from key and value
+    key=$(echo "$key" | xargs)
+    value=$(echo "$value" | xargs)
+    
     if [[ ! $key =~ ^# && $key && $value ]]; then
+      # Remove surrounding quotes from the value if they exist
       value=$(echo "$value" | sed 's/^"\(.*\)"$/\1/')
       export "$key=$value"
     fi
