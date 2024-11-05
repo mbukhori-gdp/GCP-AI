@@ -243,7 +243,7 @@ if [ ! -d "codehub" ]; then
   git clone --filter=blob:none --sparse git@github.com:mbukhori-gdp/GCP-AI.git
 fi
 
-cd codehub || { echo "Failed to navigate to the codehub directory."; exit 1; }
+cd GCP-AI || { echo "Failed to navigate to the codehub directory."; exit 1; }
 
 # # Sparse-checkout only if azure-ai folder is not present
 if [ ! -d "gcp-ai" ]; then
