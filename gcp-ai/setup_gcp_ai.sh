@@ -69,6 +69,7 @@ update_env_file() {
   # Remove existing variables from the .env file
   grep -v '^GCP_MODEL_NAME=' .env > temp.env && mv temp.env .env
   grep -v '^GCP_ENDPOINT_NAME=' .env > temp.env && mv temp.env .env
+  grep -v '^GCP_SERVICE_ACCOUNT_FILE=' .env > temp.env && mv temp.env .env
 
   # Determine model-specific suffix and settings
   case "$model_choice" in
@@ -117,12 +118,9 @@ else
   exit 1
 fi
 
-# Set GOOGLE_APPLICATION_CREDENTIALS
-if [[ "$OS" == "Windows" ]]; then
-  export GOOGLE_APPLICATION_CREDENTIALS="C:\\path\\to\\key.json"  # Adjust path for Windows if needed
-else
-  export GOOGLE_APPLICATION_CREDENTIALS="$ORIGINAL_DIR/key.json"
-fi
+# Set the GCP_SERVICE_ACCOUNT_FILE in .env dynamically
+echo "GCP_SERVICE_ACCOUNT_FILE=\"$ORIGINAL_DIR/key.json\"" >> .env
+echo "GCP_SERVICE_ACCOUNT_FILE has been set in .env to: $ORIGINAL_DIR/key.json"
 
 # Activate virtual environment
 echo "Setting up virtual environment..."
